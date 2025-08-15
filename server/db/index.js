@@ -34,21 +34,21 @@ const seed = async () => {
 
     `
     await client.query(SQL)
-    const [car, protein, aquaphor] = await Promise.all([
-        createProduct({name:'car'}),
-        createProduct({name:'protein powder'}),
-        createProduct({name: 'aquaphor'})
+    const [dietCoke, yarn, dice] = await Promise.all([
+        createProduct({name:'diet coke'}),
+        createProduct({name:'yarn'}),
+        createProduct({name: 'dice'})
     ])
 
-    const [ethyl, rowan, morgan] = await Promise.all([
-        createUser({username: 'ethyl', password: '1234', is_admin: false}),
-        createUser({username: 'rowan', password: 'rowniskewl', is_admin: false}),
-        createUser({username: 'morgan', password: 'morganiskewler', is_admin: true}),
+    const [millie, nigel, megan] = await Promise.all([
+        createUser({username: 'millie', password: '1234', is_admin: false}),
+        createUser({username: 'nigel', password: 'rowniskewl', is_admin: false}),
+        createUser({username: 'megan', password: 'meganiskewler', is_admin: true}),
     ])
 
     await Promise.all([
-        createFavorite({user_id: ethyl.id, product_id: aquaphor.id}),
-        createFavorite({user_id: rowan.id, product_id: aquaphor.id})
+        createFavorite({user_id: millie.id, product_id: yarn.id}),
+        createFavorite({user_id: nigel.id, product_id: yarn.id})
     ])
 
     console.log('created tables and seeded data')
